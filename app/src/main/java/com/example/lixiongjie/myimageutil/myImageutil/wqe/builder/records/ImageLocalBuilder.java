@@ -3,8 +3,9 @@ package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalProvider;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.AblumProvider;
+import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalListener;
+import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.ImageLocalProvider;
+import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.AlbumProvider;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.CameraProvider;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.BaseCrop;
 
@@ -19,6 +20,7 @@ public class ImageLocalBuilder {
     protected int cutY = 200 ;
     protected Activity activity ;
     protected Fragment fragment;
+    protected ImageLocalListener imageLocalListener;
 
     public  ImageLocalBuilder crop(BaseCrop crop, int cutX , int cutY){
         //TODO 完成剪切
@@ -28,22 +30,14 @@ public class ImageLocalBuilder {
 
 
     public  ImageLocalBuilder camera() throws IllegalAccessException {
-        if (isAblum){
-            throw  new IllegalAccessException("Only one can be selected in photography and gallery ");
-        }else{
             imageProvider = new CameraProvider();
             isCamera = true;
             return this;
-        }
     }
 
 
     public ImageLocalBuilder  ablum() throws IllegalAccessException {
-        if (isCamera){
-            throw  new IllegalAccessException("Only one can be selected in photography and gallery ");
-        }
-        else
-            imageProvider = new AblumProvider();
+            imageProvider = new AlbumProvider();
             isCamera = true;
         return this;
     }
@@ -55,6 +49,12 @@ public class ImageLocalBuilder {
 
     public ImageLocalBuilder with(Fragment fragment){
         this.fragment = fragment;
+        return this;
+    }
+
+    public ImageLocalBuilder setBitmapListener(ImageLocalListener imageLocalListener){
+        isListener = true;
+        this.imageLocalListener = imageLocalListener;
         return this;
     }
 
