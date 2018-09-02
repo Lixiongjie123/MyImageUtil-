@@ -1,23 +1,27 @@
 package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v4.app.Fragment;
 
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalListener;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.ImageLocalProvider;
 
 public  class ImageLocalConfig implements ImageRecord {
-    Activity activity;
-    Fragment fragment;
+
+    public Activity activity;
+    public Fragment fragment;
+
     int cutX;
     int cutY;
     boolean isCrop;
-    boolean isCamera;
-    public  boolean isListener;
-    boolean isAlbum;
-    public ImageLocalListener imageLocalListener;
-    ImageLocalProvider imageLocalProvider;
 
+    private boolean isCamera;
+    public  boolean isListener;
+    public  boolean isAlbum;
+    public ImageLocalListener imageLocalListener;
+    public  ImageLocalProvider imageLocalProvider;
+    public Context context;
 
     private ImageLocalBuilder builder;
 
@@ -35,9 +39,26 @@ public  class ImageLocalConfig implements ImageRecord {
         isCamera = this.builder.isCamera;
         isCrop = this.builder.isCrop;
         isAlbum  =  this.builder.isAblum;
+        this.imageLocalProvider = this.builder.imageProvider;
 
-        if (isAlbum == isCamera){
-            throw  new IllegalAccessException("Only one can be selected in photography and gallery") ;
+        if (!this.builder.isAblum && !this.builder.isCamera){
+            throw  new IllegalAccessException("Must choose an image source ，like camera() or Album() ") ;
+        }else if (isAlbum && isCamera){
+            throw new IllegalAccessException("Only one can be selected in photography and gallery");
+        }else {
+            this.activity = this.builder.activity;
+            this.fragment = this.builder.fragment;
+            if (this.builder.activity != null && this.builder.fragment != null){
+                throw new IllegalAccessException( "Cannot pass in two contexts at once");
+            }else if (this.builder.activity == null && this.builder.fragment == null){
+                throw new IllegalAccessException("Context cannot be empty");
+            }else {
+                context = (Context)(this.builder.activity==null?this.builder.fragment:this.builder.activity);
+                if (this.builder.isListener){
+                    isListener = true;
+                    imageLocalListener = this.builder.imageLocalListener;
+                }
+            }
         }
 
         if (isCrop){

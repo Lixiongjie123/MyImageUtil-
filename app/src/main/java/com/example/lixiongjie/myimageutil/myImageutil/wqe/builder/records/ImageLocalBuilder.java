@@ -36,7 +36,7 @@ public class ImageLocalBuilder {
     }
 
 
-    public ImageLocalBuilder  ablum() throws IllegalAccessException {
+    public ImageLocalBuilder  ablum()  {
             imageProvider = new AlbumProvider();
             isCamera = true;
         return this;

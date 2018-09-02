@@ -1,6 +1,6 @@
 package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.factory;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.BaseProvider;
+import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.ImageLocalProvider;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalBuilder;
 
 public class ImageLocalFactory  implements  ImageFactory{
@@ -10,8 +10,12 @@ public class ImageLocalFactory  implements  ImageFactory{
     }
 
     @Override
-    public BaseProvider init() {
-        //TODO 返回提供着实现类实例
+    public ImageLocalProvider init() {
+        try {
+            return new ImageLocalProvider(imageLocalBuilder);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
