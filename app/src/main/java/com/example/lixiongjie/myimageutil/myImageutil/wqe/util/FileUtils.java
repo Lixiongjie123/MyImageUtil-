@@ -2,6 +2,7 @@ package com.example.lixiongjie.myimageutil.myImageutil.wqe.util;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -9,6 +10,10 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
+
+import java.io.File;
+
 //http://xk1.cqupt.edu.cn.cqupt.congm.in/
 //https://juejin.im/entry/5a508655f265da3e2d3340d5
 public final class FileUtils {
@@ -106,5 +111,23 @@ public final class FileUtils {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
     }
 
+
+//    public static Uri FileUri2ContentUri(Context context, File imageFile) {
+//        String filePath = imageFile.getAbsolutePath();
+//        Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+//                , new String[]{"_id"}, "_data=? ", new String[]{filePath}, (String)null);
+//        if (cursor != null && cursor.moveToFirst()) {
+//            int id = cursor.getInt(cursor.getColumnIndex("_id"));
+//            Log.d("id", "FileUri2ContentUri: " +id);
+//            Uri baseUri = Uri.parse("content://media/external/images/media");
+//            return Uri.withAppendedPath(baseUri, "" + id);
+//        } else if (imageFile.exists()) {
+//            ContentValues values = new ContentValues();
+//            values.put("_data", filePath);
+//            return context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+//        } else {
+//            return null;
+//        }
+//    }
 
 }

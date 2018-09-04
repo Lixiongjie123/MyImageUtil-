@@ -18,7 +18,7 @@ public  class ImageLocalConfig implements ImageRecord {
 
     private boolean isCamera;
     public  boolean isListener;
-    public  boolean isAlbum;
+    private   boolean isAlbum;
     public ImageLocalListener imageLocalListener;
     public  ImageLocalProvider imageLocalProvider;
     public Context context;
@@ -38,20 +38,20 @@ public  class ImageLocalConfig implements ImageRecord {
 
         isCamera = this.builder.isCamera;
         isCrop = this.builder.isCrop;
-        isAlbum  =  this.builder.isAblum;
+        isAlbum  =  this.builder.isAlbum;
         this.imageLocalProvider = this.builder.imageProvider;
 
-        if (!this.builder.isAblum && !this.builder.isCamera){
-            throw  new IllegalAccessException("Must choose an image source ，like camera() or Album() ") ;
+        if (!this.builder.isAlbum && !this.builder.isCamera){
+            throw  new IllegalAccessError("Must choose an image source ，like camera() or Album() ") ;
         }else if (isAlbum && isCamera){
-            throw new IllegalAccessException("Only one can be selected in photography and gallery");
+            throw new IllegalAccessError("Only one can be selected in photography and gallery");
         }else {
             this.activity = this.builder.activity;
             this.fragment = this.builder.fragment;
             if (this.builder.activity != null && this.builder.fragment != null){
-                throw new IllegalAccessException( "Cannot pass in two contexts at once");
+                throw new IllegalAccessError( "Cannot pass in two contexts at once");
             }else if (this.builder.activity == null && this.builder.fragment == null){
-                throw new IllegalAccessException("Context cannot be empty");
+                throw new IllegalAccessError("Context cannot be empty");
             }else {
                 context = (Context)(this.builder.activity==null?this.builder.fragment:this.builder.activity);
                 if (this.builder.isListener){

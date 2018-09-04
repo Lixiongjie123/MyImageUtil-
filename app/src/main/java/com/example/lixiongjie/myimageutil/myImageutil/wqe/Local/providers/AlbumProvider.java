@@ -1,5 +1,7 @@
 package com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers;
 
+import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,7 +12,8 @@ import android.util.Log;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalConfig;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.util.FileUtils;
 
-import static android.support.constraint.Constraints.TAG;
+import java.io.FileNotFoundException;
+
 
 public class AlbumProvider implements ImageLocalProvider {
     private Context context;
@@ -35,12 +38,15 @@ public class AlbumProvider implements ImageLocalProvider {
     public void handleActivityResult(ImageLocalConfig r, Intent intent) {
         if (r.isListener){
             Uri data = intent.getData();
-            String pathByUri = FileUtils.getFilePathByUri(context, data);
-            Bitmap backBitmap = BitmapFactory.decodeFile(pathByUri);
-            if (backBitmap == null){
-                Log.d("123", "handleActivityResult: 111");
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(data));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
-            r.imageLocalListener.setBitmapOnclickListener(backBitmap);
+//            String pathByUri = FileUtils.getFilePathByUri(context, data);
+//            Bitmap backBitmap = BitmapFactory.decodeFile(pathByUri);
+            r.imageLocalListener.setBitmapOnclickListener(bitmap);
         }
     }
 }

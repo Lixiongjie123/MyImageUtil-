@@ -14,7 +14,7 @@ public class MyImageUtil {
     private static ImageFactory factory ;
     private BaseProvider baseProvider;
     private MyImageUtil() {
-  baseProvider = factory.init();
+     baseProvider = factory.init();
     }
 
     public static MyImageUtil create(ImageLocalBuilder imageLocalBuilder){

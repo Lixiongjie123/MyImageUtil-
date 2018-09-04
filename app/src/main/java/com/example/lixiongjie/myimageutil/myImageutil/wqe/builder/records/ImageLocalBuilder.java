@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v4.app.Fragment;
 
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalListener;
+import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.CropProvider;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.ImageLocalProvider;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.AlbumProvider;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.CameraProvider;
@@ -12,7 +13,7 @@ import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.BaseCrop;
 
 public class ImageLocalBuilder {
     protected boolean isCrop = false;
-    protected boolean isAblum = false;
+    protected boolean isAlbum = false;
     protected boolean isCamera = false;
     protected boolean isListener = false;
     protected ImageLocalProvider imageProvider;
@@ -24,21 +25,24 @@ public class ImageLocalBuilder {
 
     public  ImageLocalBuilder crop(BaseCrop crop, int cutX , int cutY){
         //TODO 完成剪切
+//        crop = new CropProvider(cutX,cutY);
+
+        isCrop = true;
         return  this;
     }
 
 
 
-    public  ImageLocalBuilder camera() throws IllegalAccessException {
+    public  ImageLocalBuilder camera()  {
             imageProvider = new CameraProvider();
             isCamera = true;
             return this;
     }
 
 
-    public ImageLocalBuilder  ablum()  {
+    public ImageLocalBuilder album()  {
             imageProvider = new AlbumProvider();
-            isCamera = true;
+            isAlbum = true;
         return this;
     }
 
