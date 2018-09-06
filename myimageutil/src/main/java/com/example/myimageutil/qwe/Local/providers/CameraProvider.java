@@ -1,4 +1,4 @@
-package com.example.myimageutil.wqe.Local.providers;
+package com.example.myimageutil.qwe.Local.providers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,18 +9,13 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
-import android.util.Log;
 
-import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
-import com.example.myimageutil.wqe.util.FileUtils;
+import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class CameraProvider implements ImageLocalProvider {
 

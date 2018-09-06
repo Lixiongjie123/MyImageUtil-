@@ -1,9 +1,9 @@
-package com.example.myimageutil.wqe.Local.providers;
+package com.example.myimageutil.qwe.Local.providers;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
+import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
 
 import java.io.IOException;
 

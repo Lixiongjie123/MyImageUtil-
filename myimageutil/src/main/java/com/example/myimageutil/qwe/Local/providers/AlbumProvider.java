@@ -1,22 +1,16 @@
-package com.example.myimageutil.wqe.Local.providers;
+package com.example.myimageutil.qwe.Local.providers;
 
-import android.content.ContentProvider;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 
-import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
-import com.example.myimageutil.wqe.util.FileUtils;
+import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 
-import static android.support.constraint.Constraints.TAG;
 
 
 public class AlbumProvider implements ImageLocalProvider {
@@ -49,7 +43,7 @@ public class AlbumProvider implements ImageLocalProvider {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                Log.d(TAG, "handleActivityResult: "+data +"!"+bitmap+"!"+data);
+
 //            Bitmap backBitmap = BitmapFactory.decodeFile(pathByUri);
                 r.imageLocalListener.setBitmapOnclickListener(bitmap);
                 r.imageLocalListener.setUriOnclickListener(data);

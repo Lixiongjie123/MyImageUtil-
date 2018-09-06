@@ -1,8 +1,6 @@
-package com.example.myimageutil.wqe.Local.providers;
+package com.example.myimageutil.qwe.Local.providers;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -14,9 +12,9 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 
-import com.example.myimageutil.wqe.builder.BaseCrop;
-import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
-import com.example.myimageutil.wqe.util.FileUtils;
+import com.example.myimageutil.qwe.builder.BaseCrop;
+import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
+import com.example.myimageutil.qwe.util.FileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,12 +1,12 @@
-package com.example.myimageutil.wqe.builder.core;
+package com.example.myimageutil.qwe.builder.core;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
 
-import com.example.myimageutil.wqe.builder.BaseProvider;
-import com.example.myimageutil.wqe.builder.records.ImageLocalBuilder;
-import com.example.myimageutil.wqe.builder.factory.ImageFactory;
-import com.example.myimageutil.wqe.builder.factory.ImageLocalFactory;
+import com.example.myimageutil.qwe.builder.BaseProvider;
+import com.example.myimageutil.qwe.builder.factory.ImageLocalFactory;
+import com.example.myimageutil.qwe.builder.records.ImageLocalBuilder;
+import com.example.myimageutil.qwe.builder.factory.ImageFactory;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.example.myimageutil.wqe.util;
+package com.example.myimageutil.qwe.util;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

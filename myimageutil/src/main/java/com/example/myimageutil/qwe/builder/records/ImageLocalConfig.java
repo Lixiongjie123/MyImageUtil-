@@ -1,13 +1,13 @@
-package com.example.myimageutil.wqe.builder.records;
+package com.example.myimageutil.qwe.builder.records;
 
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 
-import com.example.myimageutil.wqe.Local.listener.ImageLocalListener;
-import com.example.myimageutil.wqe.Local.providers.ImageLocalProvider;
-import com.example.myimageutil.wqe.builder.BaseCrop;
+import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
+import com.example.myimageutil.qwe.builder.BaseCrop;
+import com.example.myimageutil.qwe.Local.listener.ImageLocalListener;
 
 public  class ImageLocalConfig implements ImageRecord {
 
@@ -23,7 +23,7 @@ public  class ImageLocalConfig implements ImageRecord {
     public  boolean isListener = false ;
     private boolean isAlbum = false;
     public ImageLocalListener imageLocalListener;
-    public  ImageLocalProvider imageLocalProvider;
+    public ImageLocalProvider imageLocalProvider;
     public Context context;
     public  boolean isActivity = false;
 

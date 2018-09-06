@@ -1,15 +1,15 @@
-package com.example.myimageutil.wqe.builder.records;
+package com.example.myimageutil.qwe.builder.records;
 
 import android.app.Activity;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 
-import com.example.myimageutil.wqe.Local.listener.ImageLocalListener;
-import com.example.myimageutil.wqe.Local.providers.CropProvider;
-import com.example.myimageutil.wqe.Local.providers.ImageLocalProvider;
-import com.example.myimageutil.wqe.Local.providers.AlbumProvider;
-import com.example.myimageutil.wqe.Local.providers.CameraProvider;
-import com.example.myimageutil.wqe.builder.BaseCrop;
+import com.example.myimageutil.qwe.Local.providers.AlbumProvider;
+import com.example.myimageutil.qwe.Local.providers.CameraProvider;
+import com.example.myimageutil.qwe.Local.providers.CropProvider;
+import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
+import com.example.myimageutil.qwe.builder.BaseCrop;
+import com.example.myimageutil.qwe.Local.listener.ImageLocalListener;
 
 
 public class ImageLocalBuilder {
