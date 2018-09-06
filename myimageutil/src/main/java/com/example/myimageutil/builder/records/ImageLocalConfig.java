@@ -1,13 +1,13 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records;
+package com.example.myimageutil.wqe.builder.records;
 
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalListener;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.ImageLocalProvider;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.BaseCrop;
+import com.example.myimageutil.wqe.Local.listener.ImageLocalListener;
+import com.example.myimageutil.wqe.Local.providers.ImageLocalProvider;
+import com.example.myimageutil.wqe.builder.BaseCrop;
 
 public  class ImageLocalConfig implements ImageRecord {
 

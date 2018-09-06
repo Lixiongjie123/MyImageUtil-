@@ -1,7 +1,7 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.factory;
+package com.example.myimageutil.wqe.builder.factory;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.ImageLocalProvider;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalBuilder;
+import com.example.myimageutil.wqe.builder.ImageLocalProvider;
+import com.example.myimageutil.wqe.builder.records.ImageLocalBuilder;
 //
 public class ImageLocalFactory  implements  ImageFactory{
     private ImageLocalBuilder imageLocalBuilder;

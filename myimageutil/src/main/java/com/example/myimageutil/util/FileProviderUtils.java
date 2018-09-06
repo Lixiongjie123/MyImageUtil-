@@ -1,4 +1,4 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.util;
+package com.example.myimageutil.wqe.util;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder;
+package com.example.myimageutil.wqe.builder;
 
 import android.content.Intent;
 

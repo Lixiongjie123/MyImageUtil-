@@ -1,4 +1,4 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers;
+package com.example.myimageutil.wqe.Local.providers;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
@@ -10,8 +10,8 @@ import android.net.Uri;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalConfig;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.util.FileUtils;
+import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
+import com.example.myimageutil.wqe.util.FileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

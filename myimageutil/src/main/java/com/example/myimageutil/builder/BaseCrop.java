@@ -1,12 +1,12 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder;
+package com.example.myimageutil.wqe.builder;
 
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.providers.ImageLocalProvider;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalConfig;
+import com.example.myimageutil.wqe.Local.providers.ImageLocalProvider;
+import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
 
 import java.io.File;
 

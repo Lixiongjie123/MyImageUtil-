@@ -1,4 +1,4 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener;
+package com.example.myimageutil.wqe.Local.listener;
 
 import android.graphics.Bitmap;
 import android.net.Uri;

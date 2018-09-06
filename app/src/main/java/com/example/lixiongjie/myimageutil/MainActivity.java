@@ -16,9 +16,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalListener;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.core.MyImageUtil;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalBuilder;
+import com.example.myimageutil.wqe.Local.listener.ImageLocalListener;
+import com.example.myimageutil.wqe.builder.core.MyImageUtil;
+import com.example.myimageutil.wqe.builder.records.ImageLocalBuilder;
 
 public class MainActivity extends AppCompatActivity {
     private Button mTextButton;

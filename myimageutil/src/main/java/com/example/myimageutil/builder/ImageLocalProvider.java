@@ -1,10 +1,10 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder;
+package com.example.myimageutil.wqe.builder;
 
 import android.content.Intent;
 
 
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalBuilder;
-import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalConfig;
+import com.example.myimageutil.wqe.builder.records.ImageLocalBuilder;
+import com.example.myimageutil.wqe.builder.records.ImageLocalConfig;
 
 import java.io.IOException;
 

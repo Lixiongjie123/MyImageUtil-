@@ -1,4 +1,4 @@
-package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records;
+package com.example.myimageutil.wqe.builder.records;
 
 public interface ImageRecord  {
     void checkAndInitParams() throws IllegalAccessException;
