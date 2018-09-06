@@ -20,26 +20,48 @@ public class ImageLocalProvider implements BaseProvider {
 
     @Override
     public void execute() throws IOException {
-        if (this.imageRecord.context != null){
+
+     if (this.imageRecord.context != null){
             if (this.imageRecord.activity !=null){
-                this.imageRecord.activity.startActivityForResult(this.imageRecord.imageLocalProvider.
-                        getIntent(this.imageRecord.context),this.imageRecord.imageLocalProvider.getRequestCode());
+                if (this.imageRecord.isUriCrop) {
+                    this.imageRecord.activity.startActivityForResult
+                            (this.imageRecord.baseCrop.getIntent(this.imageRecord.context,this.imageRecord.cropUri,this.imageRecord.cutX,this.imageRecord.cutY)
+                                    ,this.imageRecord.baseCrop.getRequestCode());
+                }
+                else {
+                    this.imageRecord.activity.startActivityForResult(this.imageRecord.imageLocalProvider.
+                            getIntent(this.imageRecord.context), this.imageRecord.imageLocalProvider.getRequestCode());
+                }
             }else {
-                this.imageRecord.fragment.startActivityForResult(this.imageRecord.imageLocalProvider.getIntent(this.imageRecord.context),this.imageRecord.imageLocalProvider.getRequestCode());
+                if (this.imageRecord.isUriCrop) {
+                    this.imageRecord.fragment.startActivityForResult
+                            (this.imageRecord.baseCrop.getIntent(this.imageRecord.context,this.imageRecord.cropUri,this.imageRecord.cutX,this.imageRecord.cutY)
+                                    ,this.imageRecord.baseCrop.getRequestCode());
+                }
+
+                else
+                this.imageRecord.fragment.startActivityForResult
+                        (this.imageRecord.imageLocalProvider.getIntent(this.imageRecord.context),this.imageRecord.imageLocalProvider.getRequestCode());
             }
         }
+
+
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode != RESULT_OK ){
+        if (resultCode != RESULT_OK) {
             try {
-                throw  new  IllegalAccessException("Data returned unsuccessfullyl");
+                throw new IllegalAccessException("Data returned unsuccessfullyl");
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
             return;
         }
-        this.imageRecord.imageLocalProvider.handleActivityResult(imageRecord,intent);
+        if (requestCode != 30) {
+            this.imageRecord.imageLocalProvider.handleActivityResult(imageRecord, intent);
+        }else {
+            this.imageRecord.baseCrop.handleActivityResult(imageRecord,intent);
+        }
     }
 }

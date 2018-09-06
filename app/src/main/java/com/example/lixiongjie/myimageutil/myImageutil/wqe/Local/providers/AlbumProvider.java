@@ -7,17 +7,21 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records.ImageLocalConfig;
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.util.FileUtils;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+
+import static android.support.constraint.Constraints.TAG;
 
 
 public class AlbumProvider implements ImageLocalProvider {
     private Context context;
-
+    private  String pathByUri;
 
     @Override
     public Intent getIntent(Context context) {
@@ -36,17 +40,25 @@ public class AlbumProvider implements ImageLocalProvider {
 
     @Override
     public void handleActivityResult(ImageLocalConfig r, Intent intent) {
-        if (r.isListener){
-            Uri data = intent.getData();
-            Bitmap bitmap = null;
-            try {
-                bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(data));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-//            String pathByUri = FileUtils.getFilePathByUri(context, data);
+        if (!r.isCrop) {
+            if (r.isListener) {
+                Uri data = intent.getData();
+                Bitmap bitmap = null;
+                try {
+                    bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(data));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG, "handleActivityResult: "+data +"!"+bitmap+"!"+data);
 //            Bitmap backBitmap = BitmapFactory.decodeFile(pathByUri);
-            r.imageLocalListener.setBitmapOnclickListener(bitmap);
-        }
+                r.imageLocalListener.setBitmapOnclickListener(bitmap);
+                r.imageLocalListener.setUriOnclickListener(data);
+            }
+        }else
+            if (r.isActivity){
+            r.activity.startActivityForResult(r.baseCrop.getIntent(r.context, intent.getData(),r.cutX,r.cutY),r.baseCrop.getRequestCode());
+            }else {
+                r.fragment.startActivityForResult(r.baseCrop.getIntent(r.context,intent.getData(),r.cutX,r.cutY),r.baseCrop.getRequestCode());
+            }
     }
 }

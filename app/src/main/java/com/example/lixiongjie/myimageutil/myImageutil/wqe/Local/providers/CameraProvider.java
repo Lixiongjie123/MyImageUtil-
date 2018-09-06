@@ -57,19 +57,29 @@ public class CameraProvider implements ImageLocalProvider {
     @Override
     public void handleActivityResult(ImageLocalConfig r, Intent intent) {
         //TODO 照相解析返回资料
-        if (r.isListener){
-            Bitmap bitmap = null;
 
 
+
+
+        if (!r.isCrop) {
+            if (r.isListener){
+                Bitmap bitmap = null;
 //            try {
 //                Log.d(TAG, "handleActivityResult1: "+image.getPath()+"!"+image.getPath());
 //                bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri));
 //            } catch (FileNotFoundException e) {
 //                e.printStackTrace();
 //            }
+                bitmap = BitmapFactory.decodeFile(image.getPath());
+                r.imageLocalListener.setBitmapOnclickListener(bitmap);
+                r.imageLocalListener.setUriOnclickListener(uri);
 
-            bitmap = BitmapFactory.decodeFile(image.getPath());
-            r.imageLocalListener.setBitmapOnclickListener(bitmap);
+            }
+        }else
+        if (r.isActivity){
+            r.activity.startActivityForResult(r.baseCrop.getIntent(r.context,uri,r.cutX,r.cutY),r.baseCrop.getRequestCode());
+        }else {
+            r.fragment.startActivityForResult(r.baseCrop.getIntent(r.context,uri,r.cutX,r.cutY),r.baseCrop.getRequestCode());
         }
     }
 

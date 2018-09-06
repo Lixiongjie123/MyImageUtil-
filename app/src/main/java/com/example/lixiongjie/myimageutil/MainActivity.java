@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -59,10 +60,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void choosePhoto() {
-        myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this).camera().setBitmapListener(new ImageLocalListener() {
+        myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this).album().setBitmapListener(new ImageLocalListener() {
             @Override
             public void setBitmapOnclickListener(Bitmap bitmap) {
-                imageView.setImageBitmap(bitmap);
+
+            }
+
+            @Override
+            public void setUriOnclickListener(Uri uri) {
+                Log.d("", "setUriOnclickListener: "+uri);
+                myImageUtil = MyImageUtil
+                        .create(new ImageLocalBuilder().with(MainActivity.this).crop(uri,200,200)
+                        .setBitmapListener(new ImageLocalListener() {
+                    @Override
+                    public void setBitmapOnclickListener(Bitmap bitmap) {
+                        imageView.setImageBitmap(bitmap);
+                    }
+                    @Override
+                    public void setUriOnclickListener(Uri uri) {
+                    }
+                }));
+                myImageUtil.execute();
             }
         }));
         myImageUtil.execute();
@@ -73,7 +91,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         Log.d("MainActivity ", "onActivityResult: "+requestCode+"!"+resultCode+"!"+data);
+
         myImageUtil.onActivityForResult(requestCode,resultCode,data);
     }
 
@@ -94,5 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
+   
 }
 

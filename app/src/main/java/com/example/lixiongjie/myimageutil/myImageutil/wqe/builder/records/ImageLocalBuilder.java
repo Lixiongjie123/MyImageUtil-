@@ -1,6 +1,7 @@
 package com.example.lixiongjie.myimageutil.myImageutil.wqe.builder.records;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 
 import com.example.lixiongjie.myimageutil.myImageutil.wqe.Local.listener.ImageLocalListener;
@@ -22,16 +23,27 @@ public class ImageLocalBuilder {
     protected Activity activity ;
     protected Fragment fragment;
     protected ImageLocalListener imageLocalListener;
-
-    public  ImageLocalBuilder crop(BaseCrop crop, int cutX , int cutY){
+    protected BaseCrop baseCrop;
+    protected  boolean isUriCrop;
+    protected  Uri uri ;
+    public  ImageLocalBuilder crop(int cutX , int cutY){
         //TODO 完成剪切
-//        crop = new CropProvider(cutX,cutY);
-
-        isCrop = true;
+        this.baseCrop = new CropProvider();
+        this.isCrop = true;
+        this.cutX = cutX;
+        this.cutY = cutY;
         return  this;
     }
 
-
+    public  ImageLocalBuilder crop(Uri uri , int cutX ,int cutY){
+        this.baseCrop = new CropProvider();
+        this.cutX = cutX;
+        this.cutY = cutY;
+        this.uri = uri;
+        this.isCrop = true;
+        this.isUriCrop = true;
+        return  this;
+    }
 
     public  ImageLocalBuilder camera()  {
             imageProvider = new CameraProvider();
