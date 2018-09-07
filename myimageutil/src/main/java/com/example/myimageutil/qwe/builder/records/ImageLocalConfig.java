@@ -1,15 +1,25 @@
 package com.example.myimageutil.qwe.builder.records;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
 
 import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
 import com.example.myimageutil.qwe.builder.BaseCrop;
 import com.example.myimageutil.qwe.Local.listener.ImageLocalListener;
 
 public  class ImageLocalConfig implements ImageRecord {
+
+    public  static String FILE_PROVIDER_AUTHORITY = null;
+    public  static int REQUEST_OPEN_CAMERA = 0x011;
+    public static final int REQUEST_OPEN_GALLERY = 0x022;
+    public static final int REQUEST_CROP_PHOTO = 0x033;
 
     public Activity activity;
     public Fragment fragment;
@@ -38,6 +48,8 @@ public  class ImageLocalConfig implements ImageRecord {
         this.checkAndInitParams();
     }
 
+
+
     @Override
     public void checkAndInitParams()  {
         isCamera = this.builder.isCamera;
@@ -45,7 +57,6 @@ public  class ImageLocalConfig implements ImageRecord {
         isAlbum  =  this.builder.isAlbum;
         this.imageLocalProvider = this.builder.imageProvider;
         this.isUriCrop = this.builder.isUriCrop;
-
 
 
         if (isUriCrop){
@@ -93,6 +104,10 @@ public  class ImageLocalConfig implements ImageRecord {
             }
         }
 
+        if (FILE_PROVIDER_AUTHORITY == null){
+            FILE_PROVIDER_AUTHORITY = context.getPackageName()+".provider";
+        }
+
         //TODO 检查传入的值是不是异常或者不合法
         if (isCrop){
             this.baseCrop = this.builder.baseCrop;
@@ -102,5 +117,7 @@ public  class ImageLocalConfig implements ImageRecord {
                 throw new IllegalAccessError("");
             }
         }
+
+
     }
 }

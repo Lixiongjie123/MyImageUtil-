@@ -9,6 +9,7 @@ import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.REQUEST_CROP_PHOTO;
 
 
 public class ImageLocalProvider implements BaseProvider {
@@ -58,7 +59,7 @@ public class ImageLocalProvider implements BaseProvider {
             }
             return;
         }
-        if (requestCode != 30) {
+        if (requestCode != REQUEST_CROP_PHOTO) {
             this.imageRecord.imageLocalProvider.handleActivityResult(imageRecord, intent);
         }else {
             this.imageRecord.baseCrop.handleActivityResult(imageRecord,intent);

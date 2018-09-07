@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void choosePhoto() {
-        myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this).album().setBitmapListener(new ImageLocalListener() {
+        myImageUtil = MyImageUtil.create(new ImageLocalBuilder().providerAuthorities("com.example.lixiongjie.myimageutil.provider").with(MainActivity.this).album().setBitmapListener(new ImageLocalListener() {
             @Override
             public void setBitmapOnclickListener(Bitmap bitmap) {
 

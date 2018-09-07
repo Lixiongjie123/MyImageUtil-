@@ -23,11 +23,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.FILE_PROVIDER_AUTHORITY;
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.REQUEST_CROP_PHOTO;
+
 public class CropProvider implements BaseCrop {
     private Context context;
     private  File cropfile ;
     private  Uri newUri ;
-    public  static  final String FILE_PROVIDER_AUTHORITY = "com.example.lixiongjie.myimageutil.provider";
+
 
 
     public CropProvider() {
@@ -45,7 +48,7 @@ public class CropProvider implements BaseCrop {
 
     @Override
     public int getRequestCode() {
-        return 30;
+        return REQUEST_CROP_PHOTO;
     }
 
 

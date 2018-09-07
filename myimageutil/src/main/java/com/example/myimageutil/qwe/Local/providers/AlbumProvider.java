@@ -11,11 +11,12 @@ import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
 
 import java.io.FileNotFoundException;
 
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.REQUEST_OPEN_GALLERY;
 
 
 public class AlbumProvider implements ImageLocalProvider {
     private Context context;
-    private  String pathByUri;
+
 
     @Override
     public Intent getIntent(Context context) {
@@ -28,7 +29,7 @@ public class AlbumProvider implements ImageLocalProvider {
 
     @Override
     public int getRequestCode() {
-        return 10;
+        return REQUEST_OPEN_GALLERY;
 
     }
 

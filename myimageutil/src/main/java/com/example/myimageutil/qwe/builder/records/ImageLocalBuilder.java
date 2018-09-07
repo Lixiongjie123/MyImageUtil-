@@ -11,6 +11,8 @@ import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
 import com.example.myimageutil.qwe.builder.BaseCrop;
 import com.example.myimageutil.qwe.Local.listener.ImageLocalListener;
 
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.FILE_PROVIDER_AUTHORITY;
+
 
 public class ImageLocalBuilder {
     protected boolean isCrop = false;
@@ -26,6 +28,7 @@ public class ImageLocalBuilder {
     protected BaseCrop baseCrop;
     protected  boolean isUriCrop;
     protected  Uri uri ;
+    protected String s;
     public  ImageLocalBuilder crop(int cutX , int cutY){
         //TODO 完成剪切
         this.baseCrop = new CropProvider();
@@ -65,6 +68,13 @@ public class ImageLocalBuilder {
 
     public ImageLocalBuilder with(Fragment fragment){
         this.fragment = fragment;
+        return this;
+    }
+
+    public ImageLocalBuilder providerAuthorities(String s){
+        if (s!=null){
+        FILE_PROVIDER_AUTHORITY = s;
+        }
         return this;
     }
 

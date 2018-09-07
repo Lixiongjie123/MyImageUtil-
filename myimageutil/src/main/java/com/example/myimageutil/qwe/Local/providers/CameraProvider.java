@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.FILE_PROVIDER_AUTHORITY;
+import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.REQUEST_OPEN_CAMERA;
+
 public class CameraProvider implements ImageLocalProvider {
 
     private Context context;
@@ -33,7 +36,7 @@ public class CameraProvider implements ImageLocalProvider {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             uri = Uri.fromFile(image);
         } else {
-            uri = FileProvider.getUriForFile(context,context.getPackageName()+".provider",image);
+            uri = FileProvider.getUriForFile(context,FILE_PROVIDER_AUTHORITY,image);
         }
 
    // FileUtils.FileUri2ContentUri(context,image);
@@ -45,7 +48,7 @@ public class CameraProvider implements ImageLocalProvider {
 
     @Override
     public int getRequestCode() {
-        return 20;
+        return REQUEST_OPEN_CAMERA;
     }
 
 
