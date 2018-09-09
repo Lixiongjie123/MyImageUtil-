@@ -117,7 +117,7 @@ myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this)
 
 ### 7.0版本 ：需在Andriodmanifest文件中的对应进程添加如下：  
 
-**注意authorities一般情况填上（你的包名+".provider）"，如需自行设定需在new ImageLocalBuilder()后添加.providerAuthorities("你的Authorities")**
+**注意authorities一般情况填上（你的包名+.provider），如需自行设定需在new ImageLocalBuilder()后添加.providerAuthorities(你的Authorities)**
 
 ```gradle
 
@@ -148,7 +148,7 @@ myImageUtil = MyImageUtil.create(new myImageUtil = MyImageUtil.create(new ImageL
 ```
 
 ### 同样的在Andriodmanifest中加上权限请求：
-```
+```xml
  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> 
 ```
 
