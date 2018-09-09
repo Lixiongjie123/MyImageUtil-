@@ -135,7 +135,7 @@ myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this)
 
 添加自己authorities的情况：
 
-```
+```java
 myImageUtil = MyImageUtil.create(new myImageUtil = MyImageUtil.create(new ImageLocalBuilder()
                         .providerAuthorities(自己的Authorities)
                         .with(MainActivity.this)
