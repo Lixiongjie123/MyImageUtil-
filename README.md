@@ -17,7 +17,8 @@ allprojects {
 
 ```
 	dependencies {
-		implementation 'com.github.User:Repo:Tag'
+		implementation 'com.github.Lixiongjie123:MyImageUtil-:1.12'
+	}
 	}
 ```
 
