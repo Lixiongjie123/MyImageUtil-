@@ -25,7 +25,7 @@ allprojects {
 ## 使用
 ### 照相和图库选择： 
 
-```
+```java
 
     pubic void choosePhoto ()  {
        myImageUtil = MyImageUtil.create(new ImageLocalBuilder().album().setBitmapListener(new ImageLocalListener() {
@@ -55,7 +55,7 @@ allprojects {
 ### 图片剪切 
 #### 通过图库或者照相根源剪裁：
 
-```
+```java
 
  pubic void choosePhoto ()  {
  myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this).album().crop(200,200)setBitmapListener(new ImageLocalListener() {
@@ -82,7 +82,7 @@ allprojects {
 ```
 #### 通过Uri选择图片进行剪裁：
 
-```
+```java
 pubic void choosePhoto ()  {
 myImageUtil = MyImageUtil.create(new ImageLocalBuilder().with(MainActivity.this).crop(uri.200,200)setBitmapListener(new ImageLocalListener() {
             @Override
