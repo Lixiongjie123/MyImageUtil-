@@ -33,4 +33,8 @@ public class MyImageUtil {
     public void  onActivityForResult(int requestCode, int resultCode, @Nullable Intent data){
      this.baseProvider.onActivityResult(requestCode,resultCode,data);
     }
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        this.baseProvider.onRequestPermissionsResult( requestCode,  permissions, grantResults);
+    }
 }

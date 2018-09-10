@@ -31,14 +31,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         mTextButton = findViewById(R.id.textbutton);
         imageView = findViewById(R.id.image);
         mTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                choosePhone();
+                choosePhoto();
             }
         });
 
@@ -46,22 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void choosePhone(){
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    20);
-
-        }else {
-            choosePhoto();
-        }
-    }
-
     private void choosePhoto() {
-        myImageUtil = MyImageUtil.create(new ImageLocalBuilder().providerAuthorities("com.example.lixiongjie.myimageutil.provider").with(MainActivity.this).album().setBitmapListener(new ImageLocalListener() {
+        myImageUtil = MyImageUtil.create(new ImageLocalBuilder()
+                        .with(MainActivity.this)
+                        .camera()
+                        .crop(200,100)
+                        .setBitmapListener(new ImageLocalListener() {
             @Override
             public void setBitmapOnclickListener(Bitmap bitmap) {
 
@@ -69,19 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void setUriOnclickListener(Uri uri) {
-                Log.d("", "setUriOnclickListener: "+uri);
-                myImageUtil = MyImageUtil
-                        .create(new ImageLocalBuilder().with(MainActivity.this).crop(uri,200,200)
-                        .setBitmapListener(new ImageLocalListener() {
-                    @Override
-                    public void setBitmapOnclickListener(Bitmap bitmap) {
-                        imageView.setImageBitmap(bitmap);
-                    }
-                    @Override
-                    public void setUriOnclickListener(Uri uri) {
-                    }
-                }));
-                myImageUtil.execute();
             }
         }));
         myImageUtil.execute();
@@ -101,18 +76,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
-
-        if (requestCode == 20)
-        {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
-                choosePhoto();
-            } else
-            {
-                // Permission Denied
-                Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
-            }
-        }
+      myImageUtil.onRequestPermissionsResult(requestCode,permissions,grantResults);
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 

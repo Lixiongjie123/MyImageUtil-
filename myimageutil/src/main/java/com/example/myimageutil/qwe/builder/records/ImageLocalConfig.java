@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
 
 import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
 import com.example.myimageutil.qwe.builder.BaseCrop;
@@ -20,6 +19,7 @@ public  class ImageLocalConfig implements ImageRecord {
     public  static int REQUEST_OPEN_CAMERA = 0x011;
     public static final int REQUEST_OPEN_GALLERY = 0x022;
     public static final int REQUEST_CROP_PHOTO = 0x033;
+    public static final int REQUEST_PERIMISSION = 0x044;
 
     public Activity activity;
     public Fragment fragment;
@@ -28,6 +28,7 @@ public  class ImageLocalConfig implements ImageRecord {
     public int cutY;
     public boolean isCrop = false;
     public BaseCrop baseCrop;
+    public boolean isGetPermissions = false;
 
     private boolean isCamera = false;
     public  boolean isListener = false ;
@@ -46,9 +47,28 @@ public  class ImageLocalConfig implements ImageRecord {
     public ImageLocalConfig(ImageLocalBuilder imageLocalBuilder )  {
         builder = imageLocalBuilder;
         this.checkAndInitParams();
+        this.checkPermission();
     }
 
 
+    public void checkPermission(){
+        if (ContextCompat.checkSelfPermission(context,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+            if (isActivity) {
+                ActivityCompat.requestPermissions(activity,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        REQUEST_PERIMISSION);
+            }else
+            {
+                fragment.requestPermissions( new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        REQUEST_PERIMISSION);
+            }
+        }
+        else
+            isGetPermissions = true;
+    }
 
     @Override
     public void checkAndInitParams()  {
@@ -108,7 +128,6 @@ public  class ImageLocalConfig implements ImageRecord {
             FILE_PROVIDER_AUTHORITY = context.getPackageName()+".provider";
         }
 
-        //TODO 检查传入的值是不是异常或者不合法
         if (isCrop){
             this.baseCrop = this.builder.baseCrop;
             cutY = this.builder.cutY;

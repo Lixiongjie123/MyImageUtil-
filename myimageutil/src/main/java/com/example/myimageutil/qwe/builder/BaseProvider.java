@@ -9,4 +9,6 @@ public interface  BaseProvider {
     void  execute() throws IOException;
 
     void onActivityResult(int requestCode, int resultCode, Intent intent);
+
+    void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults);
 }

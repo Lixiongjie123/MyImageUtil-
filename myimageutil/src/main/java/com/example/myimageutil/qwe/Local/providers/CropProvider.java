@@ -93,10 +93,9 @@ public class CropProvider implements BaseCrop {
         intent.putExtra("aspectY", 1);
         intent.putExtra("outputX", outX);
         intent.putExtra("outputY", outY);
-//        intent.putExtra("scale", true);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-//        intent.putExtra("noFaceDetection", true); // no face detection
+
         return intent;
     }
 
