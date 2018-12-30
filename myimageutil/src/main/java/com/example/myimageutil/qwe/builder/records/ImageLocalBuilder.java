@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 
-import com.example.myimageutil.qwe.Local.providers.AlbumProvider;
-import com.example.myimageutil.qwe.Local.providers.CameraProvider;
-import com.example.myimageutil.qwe.Local.providers.CropProvider;
-import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
+import com.example.myimageutil.qwe.local.providers.AlbumProvider;
+import com.example.myimageutil.qwe.local.providers.CameraProvider;
+import com.example.myimageutil.qwe.local.providers.CropProvider;
+import com.example.myimageutil.qwe.local.providers.ImageLocalProvider;
 import com.example.myimageutil.qwe.builder.BaseCrop;
-import com.example.myimageutil.qwe.Local.listener.ImageLocalListener;
+import com.example.myimageutil.qwe.local.listener.ImageLocalListener;
 
 import static com.example.myimageutil.qwe.builder.records.ImageLocalConfig.FILE_PROVIDER_AUTHORITY;
 

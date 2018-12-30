@@ -1,4 +1,4 @@
-package com.example.myimageutil.qwe.Local.providers;
+package com.example.myimageutil.qwe.local.providers;
 
 import android.content.Context;
 import android.content.Intent;

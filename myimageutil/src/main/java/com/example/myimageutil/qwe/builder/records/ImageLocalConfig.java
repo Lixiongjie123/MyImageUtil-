@@ -9,9 +9,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 
-import com.example.myimageutil.qwe.Local.providers.ImageLocalProvider;
+import com.example.myimageutil.qwe.local.providers.ImageLocalProvider;
 import com.example.myimageutil.qwe.builder.BaseCrop;
-import com.example.myimageutil.qwe.Local.listener.ImageLocalListener;
+import com.example.myimageutil.qwe.local.listener.ImageLocalListener;
 
 public  class ImageLocalConfig implements ImageRecord {
 

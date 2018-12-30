@@ -1,11 +1,10 @@
-package com.example.myimageutil.qwe.Local.providers;
+package com.example.myimageutil.qwe.local.providers;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.util.Log;
 
 import com.example.myimageutil.qwe.builder.records.ImageLocalConfig;
 

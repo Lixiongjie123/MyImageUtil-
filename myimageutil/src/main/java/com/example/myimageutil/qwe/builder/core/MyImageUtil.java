@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 
 import com.example.myimageutil.qwe.builder.BaseProvider;
+import com.example.myimageutil.qwe.builder.factory.ImageLoadFactory;
 import com.example.myimageutil.qwe.builder.factory.ImageLocalFactory;
+import com.example.myimageutil.qwe.builder.records.ImageLoadBuilder;
 import com.example.myimageutil.qwe.builder.records.ImageLocalBuilder;
 import com.example.myimageutil.qwe.builder.factory.ImageFactory;
 
@@ -20,6 +22,11 @@ public class MyImageUtil {
     public static MyImageUtil create(ImageLocalBuilder imageLocalBuilder){
             factory = new ImageLocalFactory(imageLocalBuilder);
             return new MyImageUtil();
+    }
+
+    public static  MyImageUtil create(ImageLoadBuilder builder){
+        factory = new ImageLoadFactory(builder);
+        return  new MyImageUtil();
     }
 
     public void  execute(){
