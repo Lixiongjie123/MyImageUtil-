@@ -164,7 +164,7 @@ myImageUtil = MyImageUtil.create(new myImageUtil = MyImageUtil.create(new ImageL
 - 6.0版本的动态权限请求这里不一一演示这里，Demo的MainActivity查看，主要目的是在java代码里动态请求申请权限，并判断权限获得情况，从而判断是不是需要重新请求或者执行 图片选择库
 
 
-###Target
+### Target
 
 - 内存泄漏检测
 - 图片加载自适应
